@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مطعم قصر المشويات | تجربة طعام ملكية 🍽️</title>
+    <style>
+        :root {
+            --bg-dark: #121212;
+            --card-dark: #1e1e1e;
+            --gold: #f59e0b;
+            --text-light: #f3f4f6;
+            --text-gray: #9ca3af;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            scroll-behavior: smooth;
+        }
+        /* الشريط العلوي */
+        header {
+            background-color: rgba(18, 18, 18, 0.95);
+            padding: 15px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #2d2d2d;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--gold);
+        }
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            margin-right: 20px;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+        nav a:hover {
+            color: var(--gold);
+        }
+        .btn-gold {
+            background-color: var(--gold);
+            color: #121212;
+            padding: 10px 22px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            transition: 0.3s;
+        }
+        .btn-gold:hover {
+            background-color: #d97706;
+            transform: scale(1.03);
+        }
+        /* الواجهة الرئيسية */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.85)), url('https://unsplash.com');
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            padding: 110px 8%;
+        }
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+            color: var(--gold);
+        }
+        .hero p {
+            font-size: 19px;
+            color: var(--text-light);
+            max-width: 650px;
+            margin: 0 auto 30px;
+            line-height: 1.6;
+        }
+        /* المميزات السريعة */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            padding: 40px 8%;
+            background-color: #181818;
+            text-align: center;
+        }
+        .feature-box {
+            padding: 20px;
+            border-radius: 10px;
+            background: var(--card-dark);
+            border: 1px solid #2a2a2a;
+        }
+        .feature-box span {
+            font-size: 35px;
+            display: block;
+            margin-bottom: 10px;
+        }
+        /* المنيو */
+        .menu {
+            padding: 70px 8%;
+            text-align: center;
+        }
+        .menu h2 {
+            font-size: 32px;
+            color: var(--gold);
+            margin-bottom: 10px;
+        }
+        .menu-subtitle {
+            color: var(--text-gray);
+            margin-bottom: 40px;
+        }
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        .dish-card {
+            background-color: var(--card-dark);
+            border-radius: 14px;
+            overflow: hidden;
+            border: 1px solid #2d2d2d;
+            text-align: right;
+            transition: 0.3s;
+        }
+        .dish-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-5px);
+        }
+        .dish-card img {
+            width: 100%;
+            height: 210px;
+            object-fit: cover;
+        }
+        .dish-content {
+            padding: 20px;
+        }
+        .dish-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .dish-header h3 {
+            margin: 0;
+            font-size: 20px;
+        }
+        .dish-price {
+            color: var(--gold);
+            font-weight: bold;
+            font-size: 19px;
+        }
+        .dish-desc {
+            color: var(--text-gray);
+            font-size: 14px;
+            margin-bottom: 18px;
+            line-height: 1.5;
+        }
+        .order-wa {
+            display: block;
+            text-align: center;
+            background-color: #25D366;
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+        /* حجز طاولة */
+        .booking {
+            background-color: var(--card-dark);
+            margin: 20px 8% 60px;
+            padding: 45px;
+            border-radius: 16px;
+            text-align: center;
+            border: 1px solid var(--gold);
+        }
+        .booking h2 {
+            color: var(--gold);
+            margin-top: 0;
+        }
+        footer {
+            background-color: #0a0a0a;
+            text-align: center;
+            padding: 30px 8%;
+            color: var(--text-gray);
+            border-top: 1px solid #222;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">🔥 قصر المشويات</div>
+        <nav>
+            <a href="#menu">قائمة الطعام 🍖</a>
+            <a href="#booking">حجز طاولة 🥂</a>
+        </nav>
+        <a href="https://wa.me" target="_blank" class="btn-gold">اطلب دليفري 🛵</a>
+    </header>
+
+    <section class="hero">
+        <h1>مذاق المشويات الأصيل على الفحم 🥩🔥</h1>
+        <p>استمتع بأشهى الأطباق الشرقية والمشويات الطازجة المحضرة يومياً على يد أمهر الطهاة في أجواء عائلية راقية.</p>
+        <a href="#menu" class="btn-gold">تصفح المنيو الآن 🍽️</a>
+    </section>
+
+    <section class="features">
+        <div class="feature-box">
+            <span>🥩</span>
+            <h3>لحوم طازجة 100%</h3>
+            <p style="color: var(--text-gray); font-size: 14px;">أجود أنواع اللحوم البلدية المتبلة بخلطتنا السرية.</p>
+        </div>
+        <div class="feature-box">
+            <span>🛵</span>
+            <h3>توصيل ساخن وسريع</h3>
+            <p style="color: var(--text-gray); font-size: 14px;">يصلك طلبك ساخناً في أسرع وقت لأي مكان.</p>
+        </div>
+        <div class="feature-box">
+            <span>👨‍👩‍👧‍👦</span>
+            <h3>جلسات عائلية فاخرة</h3>
+            <p style="color: var(--text-gray); font-size: 14px;">صالة مكيفة ومجهزة لاستقبال العائلات والمناسبات.</p>
+        </div>
+    </section>
+
+    <section class="menu" id="menu">
+        <h2>✨ قائمة الأطباق الأكثر طلباً ✨</h2>
+        <p class="menu-subtitle">اختر وجبتك المفضلة واطلبها مباشرة عبر الواتساب</p>
+        
+        <div class="menu-grid">
+            <!-- طبق 1 -->
+            <div class="dish-card">
+                <img src="food.jpg" alt="مشويات مشكله">
+                <div class="dish-content">
+                    <div class="dish-header">
+                        <h3>طبق مشويات ملكي 🍖</h3>
+                        <span class="dish-price">380 ج.م</span>
+                    </div>
+                    <p class="dish-desc">تشكيلة فاخرة من الكباب والكفتة والشيش طاووق تقدم مع أرز بسمتي وسلطات وخبز ساخن.</p>
+                    <a href="https://wa.me?text=مرحباً، أريد طلب: طبق مشويات ملكي (380 ج.م)" target="_blank" class="order-wa">اطلب الوجبة واتساب 💬</a>
+                </div>
+            </div>
+
+            <!-- طبق 2 -->
+            <div class="dish-card">
+                <img src="big.jpg" alt="برجر مشوي">burger.jpg
+                <div class="dish-content">
+                    <div class="dish-header">
+                        <h3>دبل سماش برجر 🍔</h3>
+                        <span class="dish-price">195 ج.م</span>
+                    </div>
+                    <p class="dish-desc">قطعتان من اللحم البقري الصافي المشوي على اللهب مع جبن الشيدر الذائب والبطاطس المقرمشة.</p>
+                    <a href="https://wa.me?text=مرحباً، أريد طلب: دبل سماش برجر (195 ج.م)" target="_blank" class="order-wa">اطلب الوجبة واتساب 💬</a>
+                </div>
+            </div>
+
+            <!-- طبق 3 -->
+            <div class="dish-card">
+                <img src="pizza.jpg" alt="بيتزا إيطالي">
+                <div class="dish-content">
+                    <div class="dish-header">
+                        <h3>بيتزا سوبريم فاخرة 🍕</h3>
+                        <span class="dish-price">220 ج.م</span>
+                    </div>
+                    <p class="dish-desc">عجينة إيطالية هشة مع صلصة الطماطم الغنية، موزاريلا فاخرة، بيبروني، وخضروات طازجة.</p>
+                    <a href="https://wa.me?text=مرحباً، أريد طلب: بيتزا سوبريم فاخرة (220 ج.م)" target="_blank" class="order-wa">اطلب الوجبة واتساب 💬</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="booking" id="booking">
+        <h2>🥂 هل تخطط لعشاء عائلي أو مناسبة خاصة؟</h2>
+        <p style="color: var(--text-gray); margin-bottom: 25px;">احجز طاولتك الآن مسبقاً واستمتع بضيافة مجانية عند الوصول</p>
+        <a href="https://wa.me?text=مرحباً، أريد حجز طاولة في مطعم قصر المشويات" target="_blank" class="btn-gold">احجز طاولتك الآن 📅</a>
+    </section>
+
+    <footer>
+        <p>📍 العنوان: شارع البحر الرئيسي - بجوار برج النيل | ⏰ يومياً من 12 ظهراً حتى 2 صباحاً</p>
+        <p>جميع الحقوق محفوظة © 2026 - مطعم قصر المشويات 🔥</p>
